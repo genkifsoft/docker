@@ -17,3 +17,20 @@
     or
     docker image rm ID_IMAGE
 ```
+#### Tương tác docker với teminal
+```bash
+     docker run -it ID_IMAGE
+```
+
+#### Xem tất cả các docker đang chạy
+```bash
+    docker ps
+```
+#### Xem docker đang dừng
+```bash
+    docker ps -a
+```
+#### Start lại container đang tắt
+```bash
+    docker start CONTAINER_ID
+```
