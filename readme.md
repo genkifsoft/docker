@@ -17,6 +17,10 @@
     or
     docker image rm ID_IMAGE
 ```
+#### Nếu muốn xóa một image đang chạy
+```bash
+    docker image rm -f ID_IMAGE
+```
 #### Tương tác docker với teminal
 ```bash
      docker run -it ID_IMAGE
@@ -33,4 +37,18 @@
 #### Start lại container đang tắt
 ```bash
     docker start CONTAINER_ID
+```
+#### Đi vào teminal container
+```bash
+    docker attach CONTAINER_ID
+```
+#### Từ những image này tạo ra container
+```bash
+    docker run -it --name NAME -h HOST image
+    NAME: là đặt tên cho container
+    HOST: là host của container
+```
+#### Đang ở teminal của container. Muốn thoát teminal container nó không bị tắt
+```bash
+    CTRL + P, CTRL + Q
 ```
