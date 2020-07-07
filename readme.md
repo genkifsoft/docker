@@ -52,3 +52,59 @@
 ```bash
     CTRL + P, CTRL + Q
 ```
+### Dừng 1 container đang chạy
+```bash
+    docker stop CONTAINER_ID
+```
+#### Đang đứng ở ngoài container mà muốn thi hành 1 container đang chạy
+```bash
+    docker exec CONTAINER_ID ls-- xem tất cả các file
+```
+#### Kết nối vô teminal root
+```bash
+    docker exec -it U1 bash
+```
+
+#### Update apt htop
+```bash
+    apt update -y
+```
+#### Install htop
+```bash
+    apt install htop
+```
+#### Cài đặt vim
+```bash
+    apt install vim
+```
+#### Cài đặt ping
+```bash
+    apt install iputils-ping
+```
+
+### Quan trọng
+#### Tạo 1 image từ 1 container. Nhớ là có stast là Exited mới build ra được image
+```bash
+    docker commit CONTAINER image:tag
+    docker commit U1 ubutun:version-1
+```
+#### Save image ra file
+```bash
+    docker save --ouput myimage.tar CONTAINER_ID
+```
+#### Muốn phục hồi file image
+```bash
+    docker load -i myimage.tar
+```
+### Đặt tên cho image
+```bash
+    docker tag IMAGE_ID newimage:version2
+```
+#### Để chia sẻ dữ liệu giữa máy host và container
+```bash
+    docker run -it -v Thư mục máy tính:/home/dulieu IMAGE_ID
+```
+#### Để chia sẻ dữ liệu giữa máy host và container và đặt tên 
+```bash
+    docker run -it -v Thư mục máy tính:/home/dulieu --name NAME IMAGE_ID
+```
