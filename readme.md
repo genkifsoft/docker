@@ -108,3 +108,8 @@
 ```bash
     docker run -it -v Thư mục máy tính:/home/dulieu --name NAME IMAGE_ID
 ```
+#### Chia sẻ các file giữa container với nhau
+```bash
+    docker run -it --name C2 --volumes-from C1:unbuntu:latest
+    C2: Đặt tên mới và con container C1 được sinh ra từ unbuntu:latest
+```
