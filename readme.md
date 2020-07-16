@@ -113,3 +113,16 @@
     docker run -it --name C2 --volumes-from C1:unbuntu:latest
     C2: Đặt tên mới và con container C1 được sinh ra từ unbuntu:latest
 ```
+#### Tạo ổ đĩa với docker
+```bash
+    docker volume create D1
+```
+#### Xem tất cả các ổ đĩa
+```bash
+    docker volume ls
+```
+#### Xem chi tiết thông tin ổ đĩa
+```bash
+    docker volume inspect Ổ đĩa
+```
+#### Xoá ổ đĩa
