@@ -5,7 +5,7 @@
 ```
 #### Tải image docker
 ```bash
-    docker pull tên
+    docker pull tên_ubutu
 ```
 #### Xem cái images đã được cài đặt
 ```bash
@@ -126,3 +126,23 @@
     docker volume inspect Ổ đĩa
 ```
 #### Xoá ổ đĩa
+```bash
+    docker volume rm Ổ đĩa
+```
+
+#### Move container vào ổ đĩa
+```bash
+    docker run -it --name C1 --mount source=D2,target=/home/dist2 ubuntu
+```
+#### Chỉ cho phép chạy 1 lần và xoá nó đi
+```bash
+    docker run -it -v rm Container
+```
+#### Xem danh sách network. Mặt định rạo ra 3 mạng và nó tự kết nối mạng bridge
+```bash
+    docker network ls
+```
+#### Xem thông tin chi tiết mạng
+```bash
+    docker network inspect Tên network
+```
