@@ -146,3 +146,7 @@
 ```bash
     docker network inspect Tên network
 ```
+#### Cấp phép mạng docker container và mạng local
+```bash
+    docker run -it --name B3 -p 8888:80 busybox
+```
