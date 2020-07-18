@@ -160,3 +160,11 @@
     cs var/www
     httpd
 ```
+#### Tạo một mạng riêng
+```bash
+    docker network create Name
+```
+#### Tạo 1 container trong 1 netwrok
+```bash
+    docker run -it --name B3 --network Name_Network
+```
