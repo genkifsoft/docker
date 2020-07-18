@@ -168,3 +168,7 @@
 ```bash
     docker run -it --name B3 --network Name_Network
 ```
+#### Để gán 1 network container đang chạy
+```bash
+    docker network connect NAME_NETWORK _Container_name
+```
