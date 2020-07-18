@@ -142,6 +142,11 @@
 ```bash
     docker network ls
 ```
+
+#### tạo container từ images
+```bash
+    docker run -it --name B1 busybox
+```
 #### Xem thông tin chi tiết mạng
 ```bash
     docker network inspect Tên network
@@ -149,4 +154,9 @@
 #### Cấp phép mạng docker container và mạng local
 ```bash
     docker run -it --name B3 -p 8888:80 busybox
+```
+#### Tạo httpd cho container
+```bash
+    cs var/www
+    httpd
 ```
