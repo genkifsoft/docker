@@ -198,6 +198,10 @@
 ```bash
     docker run --network www-net --name c-httpd -h httpd -p 9999:80 -p 443:443 -v /Volumes/Programmer/docker/mycode/:/home/mycode/ -v /Volumes/Programmer/docker/mycode/httpd.conf:/usr/local/apache2/conf/httpd.conf httpd
 ```
+### Tạo httpd và chưa có và chạy nó, ánh xạ và chia sẽ dữ liệu
+```bash
+    docker run --name c-http -p 9999:80 -p 443:443 -v /Volumes/Programmer/docker/mycode/:/home/mycode/ -v /Volumes/Programmer/docker/mycode/httpd.conf:/usr/local/apache2/conf/httpd.conf --network www-net httpd
+```
 
 ### Thiết lập biến môi trường
 ```bash
@@ -225,4 +229,41 @@
     USE database;
     show databases;
     CREATE USER 'testuser'@'%' IDENTIFIED BY 'testpass';
+```
+### Cấp quyền cho use
+```bash
+    GRANT ALL PRIVILEGES ON db_wordpress.* TO 'testuser'@'%';
+    flush privileges;
+```
+### Xem lịch sử của image
+```bash
+    docker image history ID
+```
+### Xem trang thái chi tiết Image, Container
+```bash
+    docker inspectID
+```
+### Xem các file folder đã xoá
+```bash
+    docker diff ID
+```
+### Xem log container dừng số dòng muốn kiểm tra
+```bash
+    docker logs --tail 10 c-php
+```
+### Xem log container đang chạy số dòng muốn kiểm tra
+```bash
+    docker logs -f c-php
+```
+### Start nhiều container
+```bash
+    docker start ID1, ID2, ID3...
+```
+### Xem trạng thái mạng và dung lượng docker đang chạy
+```bash
+    docker stats c-php c-mysql
+```
+### XXem trạng thái mạng và dung lượng docker đang chạy tất cả container
+```bash
+    docker stats
 ```
