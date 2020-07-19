@@ -172,3 +172,57 @@
 ```bash
     docker network connect NAME_NETWORK _Container_name
 ```
+
+### Ánh xạ thư mục local vào docker
+```bash
+    docker run -d --name c-php -h php -v Ổ địa local/:/home/mycode/ --network www-net php:7.3
+```
+### Chạy vào container
+```bash
+    docker exec -it c-php bash
+```
+### Setting Htttpd
+```bash
+    docker run --rm -v /Volumes/Programmer/docker/mycode/:/home/mycode/  httpd cp /usr/local/apache2/conf/httpd.conf /home/mycode
+```
+### Uncomment
+```bash
+    LoadModule proxy_module modules/mod_proxy.so
+    LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so
+```
+### Add Hadler
+```bash
+    AddHandler "proxy:fcgi://c-php:9000" .php
+```
+### Cấu hình host và port cho httpd
+```bash
+    docker run --network www-net --name c-httpd -h httpd -p 9999:80 -p 443:443 -v /Volumes/Programmer/docker/mycode/:/home/mycode/ -v /Volumes/Programmer/docker/mycode/httpd.conf:/usr/local/apache2/conf/httpd.conf httpd
+```
+
+### Thiết lập biến môi trường
+```bash
+    docker run -it --rm -e BIEN1=value1 -e BIEN2=value2 busybox
+```
+
+### Cài đặt mysql. Tạo file my.cnf
+```bash
+    docker run --rm -v /Volumes/Programmer/docker/mycode/:/home/mycode mysql cp /etc/mysql/my.cnf /home/mycode/
+```
+### Cài đặt mật khẩu và ánh xạ db
+```bash
+    docker run -e MYSQL_ROOT_PASSWORD=abc123 -v /Volumes/Programmer/docker/mycode/my.cnf:/etc/mysql/my.cnf -v /Volumes/Programmer/docker/mycode/db:/var/lib/mysql --name c-mysql mysql
+```
+### Truy cập mysql
+```bash
+    docker exec -it c-mysql bash
+```
+### Truy cập root mysql
+```bash
+    mysql -u root -pabc123  
+```
+### Các lệnh cơ bản tương tác với db
+```bash
+    USE database;
+    show databases;
+    CREATE USER 'testuser'@'%' IDENTIFIED BY 'testpass';
+```
