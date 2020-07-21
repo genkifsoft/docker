@@ -267,3 +267,28 @@
 ```bash
     docker stats
 ```
+### Cài đặt các gói trên Centos
+```bash
+    yum update -y
+    yum install httpd httpd-tools -y
+    yum install vim -y
+    yum install epel-release -y
+    yum update -y
+    yum install htop -y
+```
+### Sao chép file từ local đến trong centos
+```bash
+    docker cp path_local Ten_container:/path centos =>var/www/html
+```
+### Lưu container thành image
+```bash
+    docker commit c-cent myimage:v1
+```
+### Chạy container từ image
+```bash
+    docker run --rm -p 9876:80 reposity:tag/container id httpd -D FOREGROUND
+```
+### Chạy lệnh trong file dockerfile
+```bash
+    docker build -t name_image -f Dockerfile .(thư mục chứa dockerfile)"." là folder hiện tại
+```
