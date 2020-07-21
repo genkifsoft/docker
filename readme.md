@@ -292,3 +292,50 @@
 ```bash
     docker build -t name_image -f Dockerfile .(thư mục chứa dockerfile)"." là folder hiện tại
 ```
+
+### Xem những dịch vụ đã cài đặt
+```bash
+    docker-compose ps -service
+```
+### Xóa tất cả các container
+```bash
+    docker-compose down
+```
+### Dừng tất cả container
+```bash
+    docker-composer stop
+```
+### Chạy tất cả docker container
+```bash
+    docker-composer start
+```
+### Khởi động lại container
+```bash
+    docker-composer restart
+```
+### Xem những container được tạo ra từ image nào
+```bash
+    docker-composer images 
+```
+### Thực thi trên container
+```bash
+    docker-composer exec my-php bash
+```
+### Xem các file trong folder
+```bash
+    docker-composer exec my-php ls
+```
+### Đọc log từng dịch vụ
+```bash
+    docker-composer log my-php my-httpd
+```
+### Đọc tất cả các dịch vụ logs đang chạy
+```bash
+    docker-composer logs
+```
+### BUILD 1 docker server
+```bash
+    docker run --rm -v E:\docker\mycode:/home/ httpd cp /usr/local/apache2/conf/httpd.conf /home/
+
+    docker run --rm -v E:\docker\mycode:/home/ mysql cp /etc/mysql/my.cnf /home/
+```

@@ -1,0 +1,60 @@
+version: "3"
+
+# NETWORK
+networks:
+  my-network:
+    driver: bridge
+
+# VOLUMES
+volumes:
+  dir-site:
+    driver_opts:
+      type: nfs
+      device: E:/docker/mycode/sites/site1/
+      o: bind
+
+services:
+  # container PHP
+  my-php:
+    container_name: php-product
+    build:
+      # build từ docker file và file là Dockerfile
+      dockerfile: Dockerfile
+      context: ./php/
+    hostname: php
+    restart: always
+    networks: 
+      - my-network
+    # Ổ đĩa dir-site: ánh xạ vào home/site của container
+    volumes: 
+      - dir-site:/home/sites/
+   # container HTTPD
+  my-httpd:
+    container_name: c-httpd01
+    image: "httpd:latest"
+    hostname: httpd
+    restart: always
+    networks: 
+      - my-network
+    volumes: 
+      - dir-site:/home/sites/
+      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
+    ports: 
+      - "9999:80"   # http://localhost:9999
+      - "443:443"
+  # container MySQL
+  my-mysql:
+    container_name: mysql-product
+    image: "mysql:latest"
+    hostname: "mysql"
+    restart: always
+    networks:
+    - my-network
+    volumes: 
+      - ./db:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/my.cnf
+    environment: 
+      - MYSQL_ROOT_PASSWORD=123abc
+      - MYSQL_DATABASE=dbsite
+      - MYSQL_USER=siteuser
+      - MYSQL_PASSWORD=sitepass
