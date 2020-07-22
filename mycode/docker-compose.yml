@@ -27,7 +27,7 @@ services:
       - my-network
     # Ổ đĩa dir-site: ánh xạ vào home/site của container
     volumes: 
-      - dir-site:/home/sites/
+      - dir-site:/home/sites/site1/
    # container HTTPD
   my-httpd:
     container_name: c-httpd01
@@ -50,7 +50,7 @@ services:
     restart: always
     networks:
     - my-network
-    volumes: 
+    volumes:
       - ./db:/var/lib/mysql
       - ./my.cnf:/etc/mysql/my.cnf
     environment: 
