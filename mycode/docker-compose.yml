@@ -10,7 +10,7 @@ volumes:
   dir-site:
     driver_opts:
       type: nfs
-      device: E:/docker/mycode/sites/site1/
+      device: /Volumes/Programmer/docker/mycode/sites/site1/
       o: bind
 
 services:
@@ -49,7 +49,7 @@ services:
     hostname: "mysql"
     restart: always
     networks:
-    - my-network
+      - my-network
     volumes: 
       - ./db:/var/lib/mysql
       - ./my.cnf:/etc/mysql/my.cnf
