@@ -303,7 +303,7 @@
 ```
 ### Dừng tất cả container
 ```bash
-    docker-composer stop
+    docker-compose stop
 ```
 ### Chạy tất cả docker container
 ```bash
@@ -311,31 +311,31 @@
 ```
 ### Khởi động lại container
 ```bash
-    docker-composer restart
+    docker-compose restart
 ```
 ### Xem những container được tạo ra từ image nào
 ```bash
-    docker-composer images 
+    docker-compose images 
 ```
 ### Thực thi trên container
 ```bash
-    docker-composer exec my-php bash
+    docker-compose exec my-php bash
 ```
 ### Xem các file trong folder
 ```bash
-    docker-composer exec my-php ls
+    docker-compose exec my-php ls
 ```
 ### Đọc log từng dịch vụ
 ```bash
-    docker-composer log my-php my-httpd
+    docker-compose log my-php my-httpd
 ```
 ### Đọc tất cả các dịch vụ logs đang chạy
 ```bash
-    docker-composer logs
+    docker-compose logs
 ```
 ### BUILD 1 docker server
 ```bash
-    docker run --rm -v E:\docker\mycode:/home/ httpd cp /usr/local/apache2/conf/httpd.conf /home/
+    docker run --rm -v E:/docker/mycode:/home/ httpd cp /usr/local/apache2/conf/httpd.conf /home/
 
-    docker run --rm -v E:\docker\mycode:/home/ mysql cp /etc/mysql/my.cnf /home/
+    docker run --rm -v E:/docker/mycode:/home/ mysql cp /etc/mysql/my.cnf /home/
 ```
